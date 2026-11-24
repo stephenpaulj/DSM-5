@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="A private, local DSM-5-TR study library with a browsable classification index, study notes, flashcards, comparisons, and fictional practice cases.">
+  <title>Mindful Atlas — DSM-5-TR Study Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="mobile-scrim" id="mobileScrim"></div>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#/home" aria-label="Mindful Atlas home">
+        <span class="brand-mark"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 5.7c-4.2 0-7.1 3.2-7.1 7.4 0 2.2.9 4.1 2.4 5.6-4.5.9-7.8 4.7-7.8 9.3 0 5.3 4.1 9.2 9.3 9.2 2.1 0 4-.7 5.5-1.9 1.5 1.2 3.4 1.9 5.5 1.9 5.2 0 9.3-3.9 9.3-9.2 0-4.6-3.3-8.4-7.8-9.3 1.5-1.5 2.4-3.4 2.4-5.6 0-4.2-2.9-7.4-7.1-7.4-2 0-3.9.8-5.1 2.2-1.2-1.4-3.1-2.2-5.1-2.2Z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 9.5v26M14.9 17.8c3.4.2 5.2 1.9 7.1 4.5m7.1-4.5c-3.4.2-5.2 1.9-7.1 4.5m-7 5.4c3.3-.3 5.5-1.4 7-3.4m7.1 3.4c-3.3-.3-5.5-1.4-7-3.4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></span>
+        <span class="brand-copy"><strong>mindful atlas</strong><small>DSM-5-TR study library</small></span>
+      </a>
+      <div class="nav-label">STUDY SPACE</div>
+      <nav class="main-nav">
+        <a href="#/home" data-nav="home"><span class="nav-icon">⌂</span>Overview</a>
+        <a href="#/library" data-nav="library"><span class="nav-icon">▤</span>Explore library<span class="nav-count" id="navEntryCount"></span></a>
+        <a href="#/compare" data-nav="compare"><span class="nav-icon">◫</span>Compare topics</a>
+        <a href="#/flashcards" data-nav="flashcards"><span class="nav-icon">▱</span>Flashcards</a>
+        <a href="#/cases" data-nav="cases"><span class="nav-icon">✳</span>Case lab</a>
+      </nav>
+      <div class="side-divider"></div>
+      <div class="chapter-heading"><span class="nav-label">CLASSIFICATION</span><button class="text-button" id="allChaptersBtn" type="button">All</button></div>
+      <nav class="chapter-nav" id="chapterNav" aria-label="DSM-5-TR chapters"></nav>
+      <div class="sidebar-bottom">
+        <div class="privacy-chip"><span class="privacy-dot"></span><span><b>Private by design</b><small>Stored only on this device</small></span></div>
+        <button class="side-link" type="button" data-route="about"><span class="nav-icon">ⓘ</span>About this study aid</button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation"><span></span><span></span><span></span></button>
+        <div class="search-wrap" id="globalSearchWrap">
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.4 4.4"/></svg>
+          <input id="globalSearch" type="search" autocomplete="off" placeholder="Search disorders, symptoms, or ICD-10-CM codes…" aria-label="Search the DSM study library" aria-controls="searchSuggestions" aria-expanded="false">
+          <kbd class="search-hint">⌘ K</kbd>
+          <div class="search-suggestions" id="searchSuggestions" role="listbox" hidden></div>
+        </div>
+        <div class="topbar-meta"><span class="local-indicator"><span></span>LOCAL STUDY SPACE</span><button class="avatar" type="button" aria-label="Study profile">S</button></div>
+      </header>
+      <main id="routeRoot" class="route-root" tabindex="-1"></main>
+      <footer class="app-footer"><span>Mindful Atlas · a private learning companion</span><span>Educational use only · not for diagnosis or treatment</span></footer>
+    </div>
+  </div>
+  <script src="dsm-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
